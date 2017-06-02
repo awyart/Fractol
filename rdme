@@ -1,0 +1,45 @@
+1 : fractale Julia
+2 : fractale Mandelbrot;
+3 : fractale Liapounov;
+4 : burning ship fractal
+5 : fractale de newton
+
+
+voir http://villemin.gerard.free.fr/Wwwgvmm/Suite/FracComp.htm !
+
+
+condition mini :
+- gerer le zoom avec la molette;
+- faire varier le parmetre de Julia a la souris (sans clic);
+- jeu de couleur
+- mettre un usage
+- gere l'expose
+- touche ESC
+
+bonus:
+-> depacement avec les fleches
+-> autres fractales
+-> representation 3D
+-> multifenetre;
+
+
+Pour le code:
+
+on a une formule cmplexe de fractal;
+Pour julia :
+	(Zn) = (Z(n-1))^2 + C en balayant les valeurs de Z0;
+Pour Mandelbrot
+	(Zn) = (Z(n-1))^2 + C en balayant les valeurs de C
+Pour liaponov:
+	https://fr.wikipedia.org/wiki/Fractale_de_Liapounov
+
+
+ A partir de la formule de la suron resout
+
+ (x + iy) = (x(n-1) + iy(n-1))^2 + C: 
+ si la fonction diverge, on represente la couleur suivant la vitesse de divergence de la fontion : Zn / Z(n-1)
+
+ Realiser un certain nombre N d'operation a partir de (x & y)
+ caluler le module de Z(N) -> cela correspondra a une couleur : -> penser a peut etre normer Z(N)/Z0 si le resutat 'est pas concluant'
+ 
+ recommencer le calcul en changeant C ou Z0 suivant la fracal>
