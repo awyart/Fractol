@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   img.c                                              :+:      :+:    :+:   */
+/*   evzoom.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/02 15:05:50 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/04 15:13:19 by awyart           ###   ########.fr       */
+/*   Created: 2017/05/30 16:05:14 by awyart            #+#    #+#             */
+/*   Updated: 2017/06/05 17:42:49 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		ft_display_img(t_env *env)
+void	ft_ev69(t_env *env)
 {
-	mlx_put_image_to_window(env->mlx, env->win, env->img, 0, 0);
-	mlx_destroy_image(env->mlx, env->img);
-	return (1);
+	env->iter += 1;
+	env->zoom += 1; 
+	ft_start(env);
 }
 
-void	ft_create_img(t_env *env)
+void	ft_ev78(t_env *env)
 {
-	int		bpp;
-	int		sizeline;
-	int		endian;
-
-	env->img = mlx_new_image(env->mlx, SIZEX, SIZEY);
-	env->pix = mlx_get_data_addr(env->img, &bpp, &sizeline, &endian);
+	if (env->zoom == 1)
+		return ;
+	env->iter -= 1;
+	env->zoom -= 1;
+	ft_start(env);
 }
-

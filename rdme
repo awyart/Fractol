@@ -34,7 +34,7 @@ Pour liaponov:
 	https://fr.wikipedia.org/wiki/Fractale_de_Liapounov
 
 
- A partir de la formule de la suron resout
+ A partir de la formule de la  fractal on resout
 
  (x + iy) = (x(n-1) + iy(n-1))^2 + C: 
  si la fonction diverge, on represente la couleur suivant la vitesse de divergence de la fontion : Zn / Z(n-1)
@@ -42,4 +42,11 @@ Pour liaponov:
  Realiser un certain nombre N d'operation a partir de (x & y)
  caluler le module de Z(N) -> cela correspondra a une couleur : -> penser a peut etre normer Z(N)/Z0 si le resutat 'est pas concluant'
  
- recommencer le calcul en changeant C ou Z0 suivant la fracal>
+ recommencer le calcul en changeant C ou Z0 suivant la fractal>
+
+
+x + iy = 5
+(a + ib) ^2 = a2 + 2iab - b2
+donc 
+x(n+1) = (xn2 - yn2 + CST)
+y(n+1) = (2xnyn)

@@ -6,7 +6,7 @@
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 14:08:02 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/02 14:10:20 by awyart           ###   ########.fr       */
+/*   Updated: 2017/06/04 16:47:30 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr_fd(char *str, int fd)
 	i = 0;
 	while (str[i] != 0)
 	{
-		write(fd, str[i], 1);
+		write(fd, &str[i], 1);
 		i++;
 	}
 }

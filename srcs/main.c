@@ -6,7 +6,7 @@
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 13:59:47 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/02 14:58:20 by awyart           ###   ########.fr       */
+/*   Updated: 2017/06/04 18:49:50 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 static void	ft_define1_ev(t_ev ev[NBEVE])
 {
-	ev[0].key =
+	ev[0].key = 53;
+	ev[1].key = 69;
+	ev[2].key = 78;
 }
 
 static void	ft_define2_ev(t_ev ev[NBEVE])
 {
-	ev[0].f = 
+	ev[0].f = &ft_exit;
+	ev[1].f = &ft_ev69;
+	ev[2].f = &ft_ev78;
 }
 
 int			my_key_func(int keycode, t_env *env)
@@ -43,25 +47,25 @@ int			my_key_func(int keycode, t_env *env)
 
 int		ft_start(t_env *env)
 {
-	if (env->type == 1)
+	if (env->type == '1')
 		ft_julia(env);
-	else if (env->type == 2)
+	else if (env->type == '2')
 		ft_mandelbrot(env);
-	else if (env->type == 3)
-		ft_liapounov(env);
+	else if (env->type == '3')
+		ft_lianpounov(env);
 	return (0);
 }
+
 int			main(int ac, char **av)
 {
 	t_env	*env;
 
 	if (ac == 1)
 	{
-		ft_putstr_fd("usage :\n1: fractale Julia\n2: fractale Mandelbrot\n3:
-		fractale Liapounov\n4: burning ship fractal\n5: fractale de newton\n", 0);
+		ft_putstr_fd("usage :\n1: fractale Julia\n2: fractale Mandelbrot", 0);
 		return (0);
 	}
-	if (!(env = (t_env *)malloc(sizeof(t_env)))
+	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (0);
 	env->type = av[1][0];
 	if (ft_init_mlx(env) == 1)
