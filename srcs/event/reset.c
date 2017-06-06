@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reset.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/06 21:59:05 by awyart            #+#    #+#             */
+/*   Updated: 2017/06/06 23:36:57 by awyart           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	ft_reset(t_env *env)
 {
-	env->x = 0;
-	env->y = 0;
+	env->x = -SIZEX / 2;
+	env->y = -SIZEY / 2;
 	env->z = 150;
 	env->option_x = SIZEX / 2;
 	env->option_y = SIZEY / 2;
-	env->iter = 50;
+	env->iter = MAX;
 	env->stop = 0;
-	env->color_value = 1;
+	ft_start(env);
 }

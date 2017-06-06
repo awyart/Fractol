@@ -6,7 +6,7 @@
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/01 16:00:56 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/05 17:04:43 by awyart           ###   ########.fr       */
+/*   Updated: 2017/06/06 21:59:51 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	ft_define_err(t_env *env)
 {
-	env->r = 0; 
+	env->r = 0;
 	env->g = 0;
-	env->b = 0; 
+	env->b = 0;
 }
 
 void	ft_define_col(t_env *env)
 {
-	env->r = 0; 
-	env->g = 0;
-	env->b = 0; 
+	env->color = !env->color;
 }
-

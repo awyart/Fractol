@@ -6,7 +6,7 @@
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 15:05:50 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/04 15:13:19 by awyart           ###   ########.fr       */
+/*   Updated: 2017/06/06 22:03:24 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_create_img(t_env *env)
 	int		sizeline;
 	int		endian;
 
-	env->img = mlx_new_image(env->mlx, SIZEX, SIZEY);
+	env->img = mlx_new_image(env->mlx, env->sizex, env->sizey);
 	env->pix = mlx_get_data_addr(env->img, &bpp, &sizeline, &endian);
 }
-

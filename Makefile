@@ -6,7 +6,7 @@
 #    By: awyart <awyart@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/28 22:10:59 by awyart            #+#    #+#              #
-#    Updated: 2017/06/05 14:38:12 by awyart           ###   ########.fr        #
+#    Updated: 2017/06/07 00:08:17 by awyart           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,24 +17,37 @@ FLAGS = -Werror -Wall -Wextra
 SRC1 = main.c\
 		img.c \
 		init.c\
+		err.c\
 	
 
 SRC2 = ft_putstr.c \
 	
-
 SRC3 = julia.c \
 
 SRC4 = mandelbrot.c \
 
 SRC5 = lianpounov.c \
+		newton.c
 
 SRC6 = evexit.c \
+		evzoom.c\
+		iter.c\
+		loop.c\
+		mouse.c\
+		move.c\
+		reset.c\
+		setcolor.c\
+		setup.c
+
+		
+SRC7 = burn.c \
 
 SRC = $(SRC1) \
 	  $(patsubst %,utility/%,$(SRC2)) \
 	  $(patsubst %,Julia/%,$(SRC3)) \
 	  $(patsubst %,Mandelbrot/%,$(SRC4))\
 	  $(patsubst %,Liapounov/%,$(SRC5)) \
+	  $(patsubst %,burningship/%,$(SRC7)) \
 	  $(patsubst %,event/%,$(SRC6))
 
 IPATH = includes
@@ -42,8 +55,10 @@ VPATH = srcs
 
 all : $(NAME)
 
-$(NAME) : $(SRC)
-	@$(CC) $(FLAGS) -o $(NAME) $^ libmlx.a -I $(IPATH) $(GRAPH)
+
+$(NAME) :  $(SRC)
+	@$(CC) $(FLAGS) -o $(NAME) $^ -I $(IPATH)  \
+				-L. -lmlx $(GRAPH)
 
 clean :
 	@rm -f $(OBJ)

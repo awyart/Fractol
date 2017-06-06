@@ -6,12 +6,11 @@
 /*   By: awyart <awyart@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/02 15:02:37 by awyart            #+#    #+#             */
-/*   Updated: 2017/06/05 16:00:17 by awyart           ###   ########.fr       */
+/*   Updated: 2017/06/06 15:22:46 by awyart           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 int		ft_lianpounov(t_env *env)
 {
