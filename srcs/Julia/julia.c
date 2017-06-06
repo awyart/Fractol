@@ -21,64 +21,54 @@ static void	ft_put_px(t_env *env, int x, int y)
 		env->pix[(x * 4) + (y * SIZEX * 4) + 2] = env->r;
 	}
 }
-void	ft_get_color1(t_env *env, double z)
+
+static void	ft_get_color(int a, t_env *env)
 {
-	if (z <= INF)
-		ft_define_1(env, z, INF);
-	else
-	{
-		ft_define_err(env);
-	}
+	if (a == env->iter)
+		ft_define_err(env)
+	env->r = (a * 5) * 1;
+	env->g = (255 - (a * 10)) * 1;
+	env->b = (255 - (a * 2)) * 1;
+	return (c);
 }
 
-static void ft_color_julia(t_env *env, int x, int y)
+static int		ft_iter(t_env *env)
 {
-	double 	tmp;
-	int 	n;
-	double	div;
-	double 	xn;
-	double	yn;
+	int		i;
+	long double tmp;
 
-
-	xn = 0.003 * (double)x / env->zoom;
-	yn = 0.003 * (double)y / env->zoom;
-	n = 0;
-	while (++n <= env->iter)
+	i = -1;
+	while (++i < env->iter)
 	{
-		tmp = xn;
-		xn = (xn * xn - yn * yn + env->real);
-		yn = (2 * tmp * yn) + env->ima;
-		if (abs((int)(xn + yn)) > INF)
-			break ;
+		tmp = env->xn;
+		env->xn = env->xn * env->xn - env->yn *env->yn - 0.8 +
+			(0.6 / ((double)env->option_x / (double)env->sizex));
+		env->yn = 2 * env->yn * tmp + 0.27015 /
+			((double)env->option_y / (double)env->sizey);
+		if (env->xn *env->xn + env->yn * env->yn >= 4)
+			return (i);
 	}
-	if (n == env->iter)
-	{
-		ft_define_err(env);
-	}
-	else
-	{
-		div = sqrt(xn * xn + yn * yn);
-		ft_get_color1(env, div);
-	}
+	return (i);
 }
 
 int		ft_julia(t_env *env)
 {
-	int x;
-	int y;
+	long long x;
+	long long y;
 
-	x = 0;
-	y = 0;
+	y = env->y;
 	ft_create_img(env);
 	while (y < SIZEY)
 	{
+		x = env->x;
 		while (x < SIZEX)
 		{
-			ft_color_julia(env, (x - SIZEX/2), (y - SIZEY / 2));
-			ft_put_px(env, x, y);
+			env->xn = (long double)x / env->z + env->real;
+			env->yn = (long double)y / env->z + env->ima;
+			ft_get_color(ft_iter(env), env);
+			ft_put_px(env, x - env->x, y - env->y);
 			x++;
 		}
-		x = 0;
 		y++;
 	}
 	return (ft_display_img(env));

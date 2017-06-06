@@ -12,16 +12,17 @@
 
 #include "fractol.h"
 
-void	ft_define_1(t_env *env, double z, double zmax)
-{
-	env->r = 255 - (255) * z / zmax; 
-	env->g = 0;
-	env->b = 0;
-}
-
 void	ft_define_err(t_env *env)
 {
 	env->r = 0; 
 	env->g = 0;
 	env->b = 0; 
 }
+
+void	ft_define_col(t_env *env)
+{
+	env->r = 0; 
+	env->g = 0;
+	env->b = 0; 
+}
+

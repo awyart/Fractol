@@ -14,7 +14,7 @@
 
 void	ft_exit(t_env *env)
 {
-	env->g = 5;
+	mlx_destroy_window(env->mlx, env->win);
 	exit(0);
 }
 

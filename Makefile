@@ -29,8 +29,6 @@ SRC4 = mandelbrot.c \
 SRC5 = lianpounov.c \
 
 SRC6 = evexit.c \
-		evzoom.c \
-		setcolor.c\
 
 SRC = $(SRC1) \
 	  $(patsubst %,utility/%,$(SRC2)) \

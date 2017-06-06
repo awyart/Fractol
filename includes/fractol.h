@@ -35,14 +35,28 @@ typedef struct		s_env
 	void			*win;
 	void			*img;
 	char			*pix;
-	double 			zoom;
-	double 			real;
-	double			ima;
 	int 			iter;
+	int 			sizex;
+	int 			sizey;
+	int 			option_x;
+	int				option_y;
+	long long		x;
+	long long		y;
+	long long		z;
 	int 			r;
 	int				g;
 	int				b;
+	int 			stop;
+	int 			zauto;
 	char			type;
+	long double		real;
+	long double		cstr;
+	long double		ima;
+	long double		ima2;
+	long double		real2;
+	long double		csti;
+	long double		xn;
+	long double		yn;
 }					t_env;
 
 typedef struct		s_ev
@@ -62,16 +76,25 @@ int					ft_display_img(t_env *env);
 void				ft_create_img(t_env *env);
 int					ft_init_mlx(t_env *env);
 
-
+void				ft_reset(t_env *env)
+int					loop_hook(t_env *env);
 void				ft_exit(t_env *env);
-void				ft_ev78(t_env *env);
-void				ft_ev69(t_env *env);
+void				ft_zoom_in(t_env *env);
+void				ft_zoom_out(t_env *env);
+void				ft_activate_zauto(t_env *env);
+void				ft_iterp(t_env *env);
+void				ft_iterl(t_env *env);
+int					mouse_move_hook(int x, int y, t_env *env);
+int					mouse_click_hook(int k, int x, int y, t_env *env);
+void				ft_evd(t_env *env);
+void				ft_evs(t_env *env);
+void				ft_evq(t_env *env);
+void				ft_evz(t_env *env);
 
-void				ft_define_1(t_env *env, double z, double zmax);
-void				ft_define_2(t_env *env, double z, double zmax);
-void				ft_define_3(t_env *env, double z, double zmax);
-void				ft_define_4(t_env *env, double z, double zmax);
+void				ft_define_col(t_env *env);
+
 void				ft_define_err(t_env *env);
 
+void				ft_put_info(t_env *e);
 
 #endif

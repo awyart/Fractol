@@ -12,18 +12,27 @@
 
 #include "fractol.h"
 
-void	ft_ev69(t_env *env)
+void	ft_zoom_in(t_env *env)
 {
-	env->iter += 1;
-	env->zoom += 1; 
-	ft_start(env);
+	env->x += env->sizex / 12;
+	env->y += env->sizey / 12;
+	env->z = env->z * 1.2;
+	env->x = env->x * 1.2;
+	env->y = env->y * 1.2;
 }
 
-void	ft_ev78(t_env *env)
+void	ft_zoom_out(t_env *env)
 {
-	if (env->zoom == 1)
+	if (env->z / 1.2 < 10)
 		return ;
-	env->iter -= 1;
-	env->zoom -= 1;
-	ft_start(env);
+	env->x -= env->sizex / 12;
+	env->y -= env->sizey / 12;
+	env->z = env->z / 1.2;
+	env->x = env->x / 1.2;
+	env->y = env->y / 1.2;
+}
+
+void ft_activate_zauto(t_env *env)
+{
+	env->zauto = !e->zauto;
 }
